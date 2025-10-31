@@ -17,29 +17,41 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const calContainerRef = useRef<HTMLDivElement>(null);
   const isCalInitialized = useRef(false);
 
-  useEffect(() => {
-    if (open && window.Cal && calContainerRef.current && !isCalInitialized.current) {
-      // Initialize Cal.com
-      window.Cal("init", { origin: "https://cal.com" });
-      
-      // Small delay to ensure Cal is ready
-      setTimeout(() => {
-        if (calContainerRef.current) {
-          window.Cal("inline", {
-            elementOrSelector: calContainerRef.current,
-            calLink: "ringmeai/demo",
-            layout: "month_view",
-            config: {
-              theme: "dark"
-            }
-          });
-          isCalInitialized.current = true;
-        }
-      }, 100);
-    }
+  const loadCalScript = () =>
+    new Promise<void>((resolve) => {
+      if (window.Cal) return resolve();
+      const existing = document.querySelector<HTMLScriptElement>('script[src="https://app.cal.com/embed/embed.js"]');
+      if (existing) {
+        existing.addEventListener('load', () => resolve());
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://app.cal.com/embed/embed.js';
+      script.async = true;
+      script.onload = () => resolve();
+      document.head.appendChild(script);
+    });
 
-    // Reset when modal closes
+  useEffect(() => {
+    let cancelled = false;
+    const init = async () => {
+      if (!open || !calContainerRef.current || isCalInitialized.current) return;
+      await loadCalScript();
+      if (cancelled) return;
+      window.Cal('init', { origin: 'https://cal.com' });
+      window.Cal('preload', { calLink: 'ringmeai' });
+      window.Cal('inline', {
+        elementOrSelector: calContainerRef.current,
+        calLink: 'ringmeai',
+        layout: 'month_view',
+        config: { theme: 'dark' },
+      });
+      isCalInitialized.current = true;
+    };
+    init();
+
     return () => {
+      cancelled = true;
       if (!open) {
         isCalInitialized.current = false;
         if (calContainerRef.current) {
