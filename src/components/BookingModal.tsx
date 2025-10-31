@@ -22,13 +22,30 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       if (window.Cal) return resolve();
       const existing = document.querySelector<HTMLScriptElement>('script[src="https://app.cal.com/embed/embed.js"]');
       if (existing) {
-        existing.addEventListener('load', () => resolve());
+        // If the script is already loaded, poll until Cal is available
+        if ((existing as any).readyState === 'complete' || existing.getAttribute('data-loaded') === 'true') {
+          const poll = setInterval(() => {
+            if (window.Cal) {
+              clearInterval(poll);
+              resolve();
+            }
+          }, 50);
+          setTimeout(() => {
+            clearInterval(poll);
+            resolve();
+          }, 3000);
+        } else {
+          existing.addEventListener('load', () => resolve(), { once: true });
+        }
         return;
       }
       const script = document.createElement('script');
       script.src = 'https://app.cal.com/embed/embed.js';
       script.async = true;
-      script.onload = () => resolve();
+      script.onload = () => {
+        script.setAttribute('data-loaded', 'true');
+        resolve();
+      };
       document.head.appendChild(script);
     });
 
@@ -37,15 +54,17 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     const init = async () => {
       if (!open || !calContainerRef.current || isCalInitialized.current) return;
       await loadCalScript();
-      if (cancelled) return;
+      if (cancelled || !window.Cal) return;
+
+      // Initialize Cal and render the inline embed
       window.Cal('init', { origin: 'https://cal.com' });
-      window.Cal('preload', { calLink: 'ringmeai' });
       window.Cal('inline', {
         elementOrSelector: calContainerRef.current,
-        calLink: 'ringmeai',
+        calLink: 'ringmeai/15min',
         layout: 'month_view',
         config: { theme: 'dark' },
       });
+
       isCalInitialized.current = true;
     };
     init();
