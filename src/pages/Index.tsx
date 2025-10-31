@@ -5,6 +5,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Phone, Bot, Calendar, TrendingUp, Users, Shield, BarChart3, Clock, Target, CheckCircle2, Instagram } from "lucide-react";
 import ceoImage from "@/assets/ceo-younes.jpg";
 import { BookingModal } from "@/components/BookingModal";
+import { ContactForm } from "@/components/ContactForm";
+import { IntegrationMarquee } from "@/components/IntegrationMarquee";
 
 const Index = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -51,6 +53,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Integration Marquee */}
+      <IntegrationMarquee />
 
       {/* Distinguish Yourself */}
       <section className="py-20 px-4">
@@ -356,18 +361,54 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Contact Form */}
       <section id="contact" className="py-20 px-4 gradient-bg">
-        <div className="container mx-auto max-w-4xl text-center">
-          <p className="text-sm text-primary font-semibold mb-4 tracking-wider">WHAT YOU STILL WAITING FOR</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Grow Now with RingmeAI</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            From booking to closing, RingmeAI keeps your pipeline full and your business growing.
-          </p>
-          <div className="w-full h-px bg-border my-8" />
-          <Button onClick={() => setBookingOpen(true)} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
-            Book a Demo
-          </Button>
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <p className="text-sm text-primary font-semibold mb-4 tracking-wider">GET IN TOUCH</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Talk About Your Growth</h2>
+            <p className="text-xl text-muted-foreground">
+              Ready to transform how your business handles calls? We're here to help.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <ContactForm />
+            <div className="space-y-6">
+              <Card className="bg-card/50 border-border backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold mb-4">Why Choose RingmeAI?</h3>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Never miss a call again with 24/7 AI coverage</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Book appointments automatically into your calendar</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Turn every lead into revenue with smart follow-ups</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Seamless integrations with your existing tools</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground mb-4">Or schedule a demo right away</p>
+                <Button 
+                  onClick={() => setBookingOpen(true)} 
+                  size="lg" 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Book a Demo Call
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -375,13 +416,18 @@ const Index = () => {
       <footer className="py-12 px-4 border-t border-border">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-3xl font-bold text-gradient">RingmeAI</div>
+            <div>
+              <div className="text-3xl font-bold text-gradient mb-2">RingmeAI</div>
+              <a href="mailto:hello@ringmeai.org" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                hello@ringmeai.org
+              </a>
+            </div>
             <div className="flex items-center gap-6">
               <a href="https://instagram.com/ringmeai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
             </div>
-            <p className="text-muted-foreground text-sm">© 2025 — Copyright</p>
+            <p className="text-muted-foreground text-sm">© 2025 RingmeAI.org — All Rights Reserved</p>
           </div>
         </div>
       </footer>

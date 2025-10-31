@@ -76,6 +76,24 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-marquee2 {
+    animation: marquee 25s linear infinite;
+    animation-delay: 12.5s;
+  }
 }
 
 /* Hide Lovable Badge */
