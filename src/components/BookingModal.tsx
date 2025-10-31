@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useEffect, useRef } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Calendar } from "lucide-react";
 
 interface BookingModalProps {
@@ -14,10 +14,39 @@ declare global {
 }
 
 export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
+  const calContainerRef = useRef<HTMLDivElement>(null);
+  const isCalInitialized = useRef(false);
+
   useEffect(() => {
-    if (open && window.Cal) {
+    if (open && window.Cal && calContainerRef.current && !isCalInitialized.current) {
+      // Initialize Cal.com
       window.Cal("init", { origin: "https://cal.com" });
+      
+      // Small delay to ensure Cal is ready
+      setTimeout(() => {
+        if (calContainerRef.current) {
+          window.Cal("inline", {
+            elementOrSelector: calContainerRef.current,
+            calLink: "ringmeai/demo",
+            layout: "month_view",
+            config: {
+              theme: "dark"
+            }
+          });
+          isCalInitialized.current = true;
+        }
+      }, 100);
     }
+
+    // Reset when modal closes
+    return () => {
+      if (!open) {
+        isCalInitialized.current = false;
+        if (calContainerRef.current) {
+          calContainerRef.current.innerHTML = '';
+        }
+      }
+    };
   }, [open]);
 
   return (
@@ -30,17 +59,18 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             </div>
             <div>
               <DialogTitle className="text-2xl font-bold text-gradient">Book Your Demo</DialogTitle>
-              <p className="text-sm text-muted-foreground mt-1">Schedule a personalized walkthrough of RingmeAI</p>
+              <DialogDescription className="text-sm text-muted-foreground mt-1">
+                Schedule a personalized walkthrough of RingmeAI
+              </DialogDescription>
             </div>
           </div>
         </DialogHeader>
         <div className="relative overflow-y-auto max-h-[calc(90vh-120px)]">
           <div className="p-6">
             <div 
-              className="cal-embed-wrapper animate-fade-in"
-              data-cal-link="ringmeai/demo"
-              data-cal-config='{"layout":"month_view","theme":"dark"}'
-              style={{ width: "100%", height: "100%", minHeight: "600px" }}
+              ref={calContainerRef}
+              className="cal-inline-embed animate-fade-in"
+              style={{ width: "100%", minHeight: "630px" }}
             />
           </div>
         </div>
