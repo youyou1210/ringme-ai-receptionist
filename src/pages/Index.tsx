@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Phone, Bot, Calendar, TrendingUp, Users, Shield, BarChart3, Clock, Target, CheckCircle2, Instagram } from "lucide-react";
 import ceoImage from "@/assets/ceo-younes.jpg";
+import { BookingModal } from "@/components/BookingModal";
 
 const Index = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -23,8 +27,8 @@ const Index = () => {
               <button onClick={() => scrollToSection("faq")} className="text-muted-foreground hover:text-foreground transition-colors">FAQ</button>
               <button onClick={() => scrollToSection("contact")} className="text-muted-foreground hover:text-foreground transition-colors">Contact</button>
             </div>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <a href="https://cal.com/ringmeai/demo" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+            <Button onClick={() => setBookingOpen(true)} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              Book a Demo
             </Button>
           </div>
         </div>
@@ -41,8 +45,8 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto">
               Your AI voice agent answers instantly, books appointments, and turns callers into customers—while you focus on scaling, not dialing
             </p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
-              <a href="https://cal.com/ringmeai/demo" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+            <Button onClick={() => setBookingOpen(true)} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
+              Book a Demo
             </Button>
           </div>
         </div>
@@ -149,8 +153,8 @@ const Index = () => {
                   <p className="text-muted-foreground">Never miss a lead with automated nurturing</p>
                 </CardContent>
               </Card>
-              <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                <a href="https://cal.com/ringmeai/demo" target="_blank" rel="noopener noreferrer">Start Growing Now</a>
+              <Button onClick={() => setBookingOpen(true)} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                Start Growing Now
               </Button>
             </div>
           </div>
@@ -361,8 +365,8 @@ const Index = () => {
             From booking to closing, RingmeAI keeps your pipeline full and your business growing.
           </p>
           <div className="w-full h-px bg-border my-8" />
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
-            <a href="https://cal.com/ringmeai/demo" target="_blank" rel="noopener noreferrer">Book a Demo</a>
+          <Button onClick={() => setBookingOpen(true)} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
+            Book a Demo
           </Button>
         </div>
       </section>
@@ -381,6 +385,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
     </div>
   );
 };

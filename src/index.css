@@ -77,3 +77,10 @@ All colors MUST be HSL.
     background-clip: text;
   }
 }
+
+/* Hide Lovable Badge */
+#lovable-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
