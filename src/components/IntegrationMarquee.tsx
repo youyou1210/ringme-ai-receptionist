@@ -1,29 +1,36 @@
+import zapierLogo from "@/assets/brands/zapier.svg";
+import twilioLogo from "@/assets/brands/twilio.svg";
+import makeLogo from "@/assets/brands/make.svg";
+
 export const IntegrationMarquee = () => {
   const integrations = [
-    { name: "Zapier", logo: "⚡" },
-    { name: "Twilio", logo: "📱" },
-    { name: "Make.com", logo: "🔧" },
-    { name: "Google Calendar", logo: "📅" },
-    { name: "Slack", logo: "💬" },
-    { name: "HubSpot", logo: "🎯" },
-    { name: "Salesforce", logo: "☁️" },
-    { name: "Stripe", logo: "💳" },
+    { name: "Zapier", logo: zapierLogo },
+    { name: "Twilio", logo: twilioLogo },
+    { name: "Make.com", logo: makeLogo },
+    { name: "Zapier", logo: zapierLogo },
+    { name: "Twilio", logo: twilioLogo },
+    { name: "Make.com", logo: makeLogo },
   ];
 
-  // Duplicate the array for seamless infinite scroll
+  // Duplicate for seamless infinite scroll
   const duplicatedIntegrations = [...integrations, ...integrations];
 
   return (
-    <div className="w-full overflow-hidden bg-primary/5 border-y border-border py-6">
+    <section aria-label="Integrations marquee" className="w-full overflow-hidden bg-primary/5 border-y border-border py-6">
       <div className="relative flex">
         <div className="flex animate-marquee whitespace-nowrap">
           {duplicatedIntegrations.map((integration, index) => (
             <div
-              key={index}
-              className="mx-8 inline-flex items-center gap-3 px-6 py-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg"
+              key={`track1-${index}`}
+              className="mx-8 inline-flex items-center gap-3 px-6 py-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg hover-scale"
             >
-              <span className="text-3xl">{integration.logo}</span>
-              <span className="text-lg font-semibold text-foreground">
+              <img
+                src={integration.logo}
+                alt={`${integration.name} integration logo`}
+                loading="lazy"
+                className="h-8 w-auto object-contain opacity-90"
+              />
+              <span className="text-lg font-semibold text-foreground/90 sr-only">
                 {integration.name}
               </span>
             </div>
@@ -32,17 +39,22 @@ export const IntegrationMarquee = () => {
         <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
           {duplicatedIntegrations.map((integration, index) => (
             <div
-              key={index}
-              className="mx-8 inline-flex items-center gap-3 px-6 py-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg"
+              key={`track2-${index}`}
+              className="mx-8 inline-flex items-center gap-3 px-6 py-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg hover-scale"
             >
-              <span className="text-3xl">{integration.logo}</span>
-              <span className="text-lg font-semibold text-foreground">
+              <img
+                src={integration.logo}
+                alt={`${integration.name} integration logo`}
+                loading="lazy"
+                className="h-8 w-auto object-contain opacity-90"
+              />
+              <span className="text-lg font-semibold text-foreground/90 sr-only">
                 {integration.name}
               </span>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

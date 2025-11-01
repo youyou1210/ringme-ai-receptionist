@@ -59,7 +59,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       // Initialize Cal and render the inline embed
       window.Cal('init', { origin: 'https://cal.com' });
       window.Cal('inline', {
-        elementOrSelector: calContainerRef.current,
+        elementOrSelector: '#ringmeai-cal',
         calLink: 'ringmeai/15min',
         layout: 'month_view',
         config: { theme: 'dark' },
@@ -99,6 +99,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
         <div className="relative overflow-y-auto max-h-[calc(90vh-120px)]">
           <div className="p-6">
             <div 
+              id="ringmeai-cal"
               ref={calContainerRef}
               className="cal-inline-embed animate-fade-in"
               style={{ width: "100%", minHeight: "630px" }}
