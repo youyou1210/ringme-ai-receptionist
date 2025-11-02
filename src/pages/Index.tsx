@@ -29,7 +29,7 @@ const Index = () => {
               <button onClick={() => scrollToSection("faq")} className="text-muted-foreground hover:text-foreground transition-colors">FAQ</button>
               <button onClick={() => scrollToSection("contact")} className="text-muted-foreground hover:text-foreground transition-colors">Contact</button>
             </div>
-            <Button onClick={() => setBookingOpen(true)} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button onClick={() => { window.location.href = 'https://cal.com/ringmeai/15min'; }} className="bg-primary hover:bg-primary/90 text-primary-foreground">
               Book a Demo
             </Button>
           </div>
@@ -47,7 +47,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto">
               Your AI voice agent answers instantly, books appointments, and turns callers into customers—while you focus on scaling, not dialing
             </p>
-            <Button onClick={() => setBookingOpen(true)} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
+            <Button onClick={() => { window.location.href = 'https://cal.com/ringmeai/15min'; }} size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6">
               Book a Demo
             </Button>
           </div>
@@ -158,7 +158,7 @@ const Index = () => {
                   <p className="text-muted-foreground">Never miss a lead with automated nurturing</p>
                 </CardContent>
               </Card>
-              <Button onClick={() => setBookingOpen(true)} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button onClick={() => { window.location.href = 'https://cal.com/ringmeai/15min'; }} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                 Start Growing Now
               </Button>
             </div>
@@ -400,7 +400,7 @@ const Index = () => {
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-4">Or schedule a demo right away</p>
                 <Button 
-                  onClick={() => setBookingOpen(true)} 
+                  onClick={() => { window.location.href = 'https://cal.com/ringmeai/15min'; }} 
                   size="lg" 
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
