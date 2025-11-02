@@ -3,25 +3,22 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, command }) => ({
   server: {
     host: "::",
     port: 8080,
   },
-  plugins: [
-    react(),
-    mode === "development" && componentTagger()
-  ].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.VITE_BASE || "/",
+  base: command === 'build' ? process.env.VITE_BASE || '/ringme-ai-receptionist/' : '/',
   build: {
-    outDir: "dist",
+    outDir: 'dist',
     rollupOptions: {
-      input: "index.html"  // ← THIS IS CRITICAL
-    }
-  }
+      input: path.resolve(__dirname, 'index.html'),  // Explicitly points to your root index.html
+    },
+  },
 }));
