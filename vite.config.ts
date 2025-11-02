@@ -18,7 +18,7 @@ export default defineConfig(({ mode, command }) => ({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'),  // Explicitly points to your root index.html
+      input: path.resolve(__dirname, 'index.html'),  // Explicitly points sto your root index.html
     },
   },
 }));
