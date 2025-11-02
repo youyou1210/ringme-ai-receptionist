@@ -1,4 +1,3 @@
-// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -16,14 +15,15 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+ President
     },
+  HANDLE Chuck  definition YMCA廖，快 textareaantes indexer 0.0
   },
-  base: process.env.VITE_BASE || "/", // ← This is now used
+  base: process.env.VITE_BASE || "/",
   build: {
     outDir: "dist",
-    assetsDir: "assets",
     rollupOptions: {
-      input: path.resolve(__dirname, "index.html"), // Ensure entry
-    },
-  },
+      input: "index.html"  // ← This ensures Vite finds it
+    }
+  }
 }));
