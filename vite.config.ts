@@ -4,7 +4,6 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -19,6 +18,12 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Critical: Set base path for GitHub Pages
-  base: process.env.VITE_BASE || "/",
+  base: process.env.VITE_BASE || "/", // ← This is now used
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    rollupOptions: {
+      input: path.resolve(__dirname, "index.html"), // Ensure entry
+    },
+  },
 }));
