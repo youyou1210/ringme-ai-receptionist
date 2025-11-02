@@ -15,8 +15,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  // For branch deploy: Use root base
-  base: "/",  
+  base: "/ringme-ai-receptionist/",  // REQUIRED for sub-repo
 
   build: {
     outDir: "dist",
