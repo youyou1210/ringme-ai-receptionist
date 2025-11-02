@@ -7,50 +7,24 @@ export const IntegrationMarquee = () => {
     { name: "Zapier", logo: zapierLogo },
     { name: "Twilio", logo: twilioLogo },
     { name: "Make.com", logo: makeLogo },
-    { name: "Zapier", logo: zapierLogo },
-    { name: "Twilio", logo: twilioLogo },
-    { name: "Make.com", logo: makeLogo },
   ];
 
-  // Duplicate for seamless infinite scroll
-  const duplicatedIntegrations = [...integrations, ...integrations];
+  // Build a long single track to avoid layered banners
+  const trackItems = [...integrations, ...integrations, ...integrations];
 
   return (
     <section aria-label="Integrations marquee" className="w-full overflow-hidden bg-primary/5 border-y border-border py-6">
-      <div className="relative flex">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {duplicatedIntegrations.map((integration, index) => (
-            <div
-              key={`track1-${index}`}
-              className="mx-8 inline-flex items-center gap-3 px-6 py-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg hover-scale"
-            >
+      <div className="relative">
+        <div className="flex items-center whitespace-nowrap animate-marquee gap-12 px-4">
+          {trackItems.map((integration, index) => (
+            <div key={`logo-${index}`} className="inline-flex items-center">
               <img
                 src={integration.logo}
-                alt={`${integration.name} integration logo`}
+                alt={`${integration.name} logo`}
                 loading="lazy"
-                className="h-8 w-auto object-contain opacity-90"
+                className="h-8 w-auto object-contain"
               />
-              <span className="text-lg font-semibold text-foreground/90 sr-only">
-                {integration.name}
-              </span>
-            </div>
-          ))}
-        </div>
-        <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
-          {duplicatedIntegrations.map((integration, index) => (
-            <div
-              key={`track2-${index}`}
-              className="mx-8 inline-flex items-center gap-3 px-6 py-3 bg-card/50 backdrop-blur-sm border border-border rounded-lg hover-scale"
-            >
-              <img
-                src={integration.logo}
-                alt={`${integration.name} integration logo`}
-                loading="lazy"
-                className="h-8 w-auto object-contain opacity-90"
-              />
-              <span className="text-lg font-semibold text-foreground/90 sr-only">
-                {integration.name}
-              </span>
+              <span className="sr-only">{integration.name}</span>
             </div>
           ))}
         </div>

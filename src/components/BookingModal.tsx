@@ -5,6 +5,7 @@ import { Calendar } from "lucide-react";
 interface BookingModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  calLink?: string; // e.g. "ringmeai/15min"
 }
 
 declare global {
@@ -17,12 +18,24 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const calContainerRef = useRef<HTMLDivElement>(null);
   const isCalInitialized = useRef(false);
 
+  // Ensure Cal.com's embed CSS is present (needed for proper month/day UI)
+  const loadCalStyles = () =>
+    new Promise<void>((resolve) => {
+      const id = 'cal-embed-styles';
+      if (document.getElementById(id)) return resolve();
+      const link = document.createElement('link');
+      link.id = id;
+      link.rel = 'stylesheet';
+      link.href = 'https://app.cal.com/embed/embed.css';
+      link.onload = () => resolve();
+      document.head.appendChild(link);
+    });
+
   const loadCalScript = () =>
     new Promise<void>((resolve) => {
       if (window.Cal) return resolve();
       const existing = document.querySelector<HTMLScriptElement>('script[src="https://app.cal.com/embed/embed.js"]');
       if (existing) {
-        // If the script is already loaded, poll until Cal is available
         if ((existing as any).readyState === 'complete' || existing.getAttribute('data-loaded') === 'true') {
           const poll = setInterval(() => {
             if (window.Cal) {
@@ -53,10 +66,11 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     let cancelled = false;
     const init = async () => {
       if (!open || !calContainerRef.current || isCalInitialized.current) return;
-      await loadCalScript();
+
+      // Load CSS and JS (in parallel) before initializing
+      await Promise.all([loadCalStyles(), loadCalScript()]);
       if (cancelled || !window.Cal) return;
 
-      // Initialize Cal and render the inline embed
       window.Cal('init', { origin: 'https://cal.com' });
       window.Cal('inline', {
         elementOrSelector: '#ringmeai-cal',
