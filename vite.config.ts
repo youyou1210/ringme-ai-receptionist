@@ -15,15 +15,14 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  base: "/ringme-ai-receptionist/",
+  // For branch deploy: Use root base
+  base: "/",  
 
   build: {
     outDir: "dist",
     rollupOptions: {
       input: {
-        // HTML entry → processed and script injected
         main: path.resolve(__dirname, "index.html"),
-        // JS entry → ensures main.tsx is compiled and linked
         app: path.resolve(__dirname, "src/main.tsx"),
       },
     },
