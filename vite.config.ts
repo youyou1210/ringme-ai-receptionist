@@ -6,7 +6,6 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    // Only enable Lovable tagger in development
     mode === "development" && componentTagger(),
   ].filter(Boolean),
 
@@ -16,15 +15,16 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  // Critical: Force base path for GitHub Pages sub-repo
   base: "/ringme-ai-receptionist/",
 
   build: {
     outDir: "dist",
     rollupOptions: {
-      // THIS IS THE KEY: Vite MUST process index.html
       input: {
+        // HTML entry → processed and script injected
         main: path.resolve(__dirname, "index.html"),
+        // JS entry → ensures main.tsx is compiled and linked
+        app: path.resolve(__dirname, "src/main.tsx"),
       },
     },
   },
