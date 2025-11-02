@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
+export const BookingModal = ({ open, onOpenChange, calLink = 'ringmeai/15min' }: BookingModalProps) => {
   const calContainerRef = useRef<HTMLDivElement>(null);
   const isCalInitialized = useRef(false);
 
@@ -67,17 +67,36 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
     const init = async () => {
       if (!open || !calContainerRef.current || isCalInitialized.current) return;
 
+      console.log('[BookingModal] Opening modal, preparing Cal embed');
       // Load CSS and JS (in parallel) before initializing
       await Promise.all([loadCalStyles(), loadCalScript()]);
-      if (cancelled || !window.Cal) return;
+      if (cancelled || !window.Cal) {
+        console.warn('[BookingModal] Cal API not available after load');
+        return;
+      }
 
+      console.log('[BookingModal] Cal API available, initializing inline embed for', calLink);
       window.Cal('init', { origin: 'https://cal.com' });
       window.Cal('inline', {
-        elementOrSelector: '#ringmeai-cal',
-        calLink: 'ringmeai/15min',
+        elementOrSelector: calContainerRef.current,
+        calLink,
         layout: 'month_view',
         config: { theme: 'dark' },
       });
+
+      // Robust fallback: if inline hasn't injected content, use an iframe embed
+      setTimeout(() => {
+        const hasContent = calContainerRef.current?.children.length;
+        if (!hasContent && calContainerRef.current) {
+          console.warn('[BookingModal] Inline embed did not render, falling back to iframe:', calLink);
+          calContainerRef.current.innerHTML = `
+            <iframe
+              src="https://cal.com/${calLink}?embed=true&layout=month_view&theme=dark"
+              style="width:100%;min-height:630px;border:0;"
+              loading="lazy"
+            ></iframe>`;
+        }
+      }, 1200);
 
       isCalInitialized.current = true;
     };
