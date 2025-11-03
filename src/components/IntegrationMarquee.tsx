@@ -27,8 +27,7 @@ export const IntegrationMarquee = () => {
               src={integration.logo}
               alt={`${integration.name} logo`}
               loading="lazy"
-              className="h-8 w-auto object-contain brightness-0 invert-0 [filter:none]"
-              style={{ filter: 'none' }}
+              className="h-8 w-auto object-contain hover:scale-110 transition-transform"
             />
             <span className="sr-only">{integration.name}</span>
           </div>

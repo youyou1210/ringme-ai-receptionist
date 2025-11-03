@@ -82,12 +82,12 @@ const Index = () => {
       {/* AI That Fits Your Business */}
       <section id="features" className="py-20 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
-          <Accordion type="single" collapsible defaultValue="features-1">
-            <AccordionItem value="features-1" className="border-0">
-              <AccordionTrigger className="text-4xl font-bold mb-2 text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="features" className="border-0">
+              <AccordionTrigger className="text-4xl font-bold text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
                 AI That Fits Your Business
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pt-4">
                 <p className="text-lg text-muted-foreground mb-12 text-center max-w-4xl mx-auto">
                   From dental clinics to roofers, med spas to private tutors, we design AI receptionists that adapt to your industry's unique needs. Whether it's booking patient check-ups, scheduling roofing consultations, or handling spa appointments, our agents deliver personalized, professional service—so your clients always feel valued and your business runs smoother
                 </p>
@@ -123,12 +123,12 @@ const Index = () => {
       {/* AI That Expands With You */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <Accordion type="single" collapsible defaultValue="expand-1">
-            <AccordionItem value="expand-1" className="border-0">
-              <AccordionTrigger className="text-4xl font-bold mb-2 text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="expand" className="border-0">
+              <AccordionTrigger className="text-4xl font-bold text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
                 AI That Expands With You
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pt-4">
                 <p className="text-lg text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
                   Growing a business shouldn't mean adding endless overhead. With our AI-powered agents, you scale smarter—not harder. Whether you're handling 10 calls or 1,000, our system adapts instantly, giving you the freedom to focus on the bigger picture
                 </p>
@@ -185,12 +185,12 @@ const Index = () => {
       {/* Insights */}
       <section className="py-20 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
-          <Accordion type="single" collapsible defaultValue="insights-1">
-            <AccordionItem value="insights-1" className="border-0">
-              <AccordionTrigger className="text-4xl font-bold mb-2 text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="insights" className="border-0">
+              <AccordionTrigger className="text-4xl font-bold text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
                 Insights
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pt-4">
                 <p className="text-lg text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
                   Every interaction tells a story. Our platform transforms call data into meaningful insights, helping you spot trends, measure performance, and make smarter decisions that drive real growth.
                 </p>
@@ -244,12 +244,12 @@ const Index = () => {
       <section className="py-20 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
           <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">INTEGRATIONS</p>
-          <Accordion type="single" collapsible defaultValue="integrations-1">
-            <AccordionItem value="integrations-1" className="border-0">
-              <AccordionTrigger className="text-4xl font-bold mb-2 text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="integrations" className="border-0">
+              <AccordionTrigger className="text-4xl font-bold text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
                 Seamless Integrations
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pt-4">
                 <p className="text-lg text-muted-foreground mb-12 text-center">Smart integrations built to scale with you</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
@@ -276,11 +276,11 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">COMPARISON</p>
           <Accordion type="single" collapsible>
-            <AccordionItem value="comparison-1" className="border-0">
-              <AccordionTrigger className="text-4xl font-bold mb-2 text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
+            <AccordionItem value="comparison" className="border-0">
+              <AccordionTrigger className="text-4xl font-bold text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
                 Why RingmeAI Stands Out
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pt-4">
                 <p className="text-lg text-muted-foreground mb-12 text-center">See how we compare against others in performance, growth</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <Card className="bg-primary/10 border-primary">
@@ -333,11 +333,11 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">AI-DRIVEN EFFICIENCY</p>
           <Accordion type="single" collapsible>
-            <AccordionItem value="efficiency-1" className="border-0">
-              <AccordionTrigger className="text-4xl font-bold mb-2 text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
+            <AccordionItem value="efficiency" className="border-0">
+              <AccordionTrigger className="text-4xl font-bold text-center hover:no-underline [&[data-state=open]]:text-primary transition-colors">
                 Never Miss an Opportunity
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pt-4">
                 <p className="text-lg text-muted-foreground mb-12 text-center">Capture leads, analyze trends, and centralize critical insights</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
