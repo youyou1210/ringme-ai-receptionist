@@ -19,16 +19,21 @@ export const IntegrationMarquee = () => {
   const allLogos = [...integrations, ...integrations];
 
   return (
-    <section aria-label="Integrations marquee" className="w-full overflow-hidden bg-primary/5 border-y border-border py-6">
-      <div className="flex items-center whitespace-nowrap animate-marquee gap-12 px-4">
+    <section aria-label="Integrations marquee" className="w-full overflow-hidden bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-y border-primary/20 py-8">
+      <div className="flex items-center whitespace-nowrap animate-marquee gap-16 px-4">
         {allLogos.map((integration, index) => (
-          <div key={`${integration.name}-${index}`} className="inline-flex items-center flex-shrink-0">
-            <img
-              src={integration.logo}
-              alt={`${integration.name} logo`}
-              loading="lazy"
-              className="h-8 w-auto object-contain hover:scale-110 transition-transform"
-            />
+          <div key={`${integration.name}-${index}`} className="inline-flex items-center flex-shrink-0 group">
+            <div className="p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all hover:scale-110 hover:shadow-lg hover:shadow-primary/20">
+              <img
+                src={integration.logo}
+                alt={`${integration.name} logo`}
+                loading="lazy"
+                className="h-10 w-auto object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+                style={{ 
+                  filter: 'brightness(0) saturate(100%) invert(77%) sepia(70%) saturate(500%) hue-rotate(190deg) brightness(100%) contrast(90%)'
+                }}
+              />
+            </div>
             <span className="sr-only">{integration.name}</span>
           </div>
         ))}

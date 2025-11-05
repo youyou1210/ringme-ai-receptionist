@@ -7,6 +7,7 @@ import ceoImage from "@/assets/ceo-younes.jpg";
 import { BookingModal } from "@/components/BookingModal";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationMarquee } from "@/components/IntegrationMarquee";
+import { DashboardShowcase } from "@/components/DashboardShowcase";
 
 const Index = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -18,8 +19,18 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Top Banner */}
+      <div className="w-full bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 border-b border-primary/30 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-3 text-center">
+          <p className="text-sm md:text-base font-medium">
+            🎉 <span className="text-primary font-bold">Limited Offer:</span> Book a demo this week and get{" "}
+            <span className="text-gradient font-bold">50% off your first month</span> 🚀
+          </p>
+        </div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
+      <nav className="fixed top-[52px] left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold text-gradient">RingmeAI</div>
@@ -37,7 +48,7 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-4">
+      <section id="home" className="pt-40 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -56,6 +67,9 @@ const Index = () => {
 
       {/* Integration Marquee */}
       <IntegrationMarquee />
+
+      {/* Dashboard Showcase */}
+      <DashboardShowcase />
 
       {/* Distinguish Yourself */}
       <section className="py-20 px-4">
