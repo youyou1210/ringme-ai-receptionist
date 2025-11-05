@@ -4,10 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  server: {
-    port: 8080,
-  },
-  
   plugins: [
     react(),
     mode === "development" && componentTagger(),
@@ -19,9 +15,16 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  base: "/ringme-ai-receptionist/",
+  // For branch deploy: Use root base
+  base: "/",  
 
   build: {
     outDir: "dist",
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+        app: path.resolve(__dirname, "src/main.tsx"),
+      },
+    },
   },
 }));
