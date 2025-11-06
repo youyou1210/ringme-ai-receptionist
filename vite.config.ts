@@ -15,8 +15,12 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
+  server: {
+    port: 8080,
+  },
+
   // For branch deploy: Use root base
-  base: "/",  
+  base: "/",
 
   build: {
     outDir: "dist",

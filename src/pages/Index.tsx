@@ -7,6 +7,7 @@ import ceoImage from "@/assets/ceo-younes.jpg";
 import { BookingModal } from "@/components/BookingModal";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationMarquee } from "@/components/IntegrationMarquee";
+import { DashboardShowcase } from "@/components/DashboardShowcase";
 
 const Index = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -56,6 +57,9 @@ const Index = () => {
 
       {/* Integration Marquee */}
       <IntegrationMarquee />
+
+      {/* RingmeAI Dashboard Preview */}
+      <DashboardShowcase />
 
       {/* Distinguish Yourself */}
       <section className="py-20 px-4">
