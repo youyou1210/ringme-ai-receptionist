@@ -61,30 +61,32 @@ const Index = () => {
       {/* RingmeAI Dashboard Preview */}
       <DashboardShowcase />
 
-      {/* Distinguish Yourself */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-bold mb-6 text-center">Distinguish yourself</h3>
-          <p className="text-lg text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
-            Our AI receptionists are designed to give every caller the experience of speaking with a real person. They don't just answer phones—they greet, guide, and handle tasks with professionalism, ensuring your business always leaves a lasting impression
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="bg-card border-border animate-scale-in hover:scale-105 transition-transform">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <Bot className="w-8 h-8 text-primary" />
-                  </div>
-                  <p className="font-semibold">Robinson - Sales Agent</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Founder's Note */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">FOUNDERS NOTE</p>
+          <Card className="bg-card border-border">
+            <CardContent className="p-8 md:p-12">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <img src={ceoImage} alt="Younes - Co-Founder & CEO" className="w-32 h-32 rounded-full object-cover" />
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">" We gather your site data. We know your target audience & how your brand can standout from crowd. Best part is we also help you with Solutions „</h3>
+                  <p className="text-muted-foreground mb-4">
+                    When I started this journey, I saw the same problem over and over again — businesses losing opportunities, not because their product wasn't great, but because a call went unanswered or a lead slipped through the cracks.
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    The way I see it, every call is a chance to grow. And with the right technology, you'll never miss that chance again.
+                  </p>
+                  <p className="font-semibold">Younes - Co-Founder & CEO</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* AI That Fits Your Business */}
-      <section id="features" className="py-20 px-4 gradient-bg">
+      <section id="features" className="py-16 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-4xl font-bold mb-6 text-center">AI That Fits Your Business</h3>
           <p className="text-lg text-muted-foreground mb-12 text-center max-w-4xl mx-auto">
@@ -117,7 +119,7 @@ const Index = () => {
       </section>
 
       {/* AI That Expands With You */}
-      <section className="py-20 px-4">
+      <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-4xl font-bold mb-6 text-center">AI That Expands With You</h3>
           <p className="text-lg text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
@@ -170,21 +172,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Insights */}
-      <section className="py-20 px-4 gradient-bg">
+      {/* Key Benefits */}
+      <section className="py-16 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-bold mb-6 text-center">Insights</h3>
-          <p className="text-lg text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
-            Every interaction tells a story. Our platform transforms call data into meaningful insights, helping you spot trends, measure performance, and make smarter decisions that drive real growth.
-          </p>
+          <h3 className="text-4xl font-bold mb-12 text-center">Why Choose RingmeAI</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Clock, title: "24/7 Coverage", desc: "Never miss a call" },
-              { icon: Users, title: "Retention", desc: "Keep clients happy" },
-              { icon: Target, title: "Conversion", desc: "Turn leads into sales" },
-              { icon: TrendingUp, title: "Grow Income", desc: "Scale revenue" }
+              { icon: Clock, title: "24/7 Coverage", desc: "Never miss a call, day or night" },
+              { icon: Calendar, title: "Auto-Booking", desc: "Appointments scheduled instantly" },
+              { icon: Target, title: "Lead Capture", desc: "Every caller becomes an opportunity" },
+              { icon: TrendingUp, title: "Smart Insights", desc: "Data-driven growth decisions" }
             ].map((item) => (
-              <Card key={item.title} className="bg-card border-border">
+              <Card key={item.title} className="bg-card border-border hover:border-primary/50 transition-all">
                 <CardContent className="p-6 text-center">
                   <item.icon className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h4 className="font-bold text-lg mb-2">{item.title}</h4>
@@ -196,32 +195,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Founder's Note */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">FOUNDERS NOTE</p>
-          <Card className="bg-card border-border">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <img src={ceoImage} alt="Younes - Co-Founder & CEO" className="w-32 h-32 rounded-full object-cover" />
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">" We gather your site data. We know your target audience & how your brand can standout from crowd. Best part is we also help you with Solutions „</h3>
-                  <p className="text-muted-foreground mb-4">
-                    When I started this journey, I saw the same problem over and over again — businesses losing opportunities, not because their product wasn't great, but because a call went unanswered or a lead slipped through the cracks.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    The way I see it, every call is a chance to grow. And with the right technology, you'll never miss that chance again.
-                  </p>
-                  <p className="font-semibold">Younes - Co-Founder & CEO</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
       {/* Integrations */}
-      <section className="py-20 px-4 gradient-bg">
+      <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">INTEGRATIONS</p>
           <h2 className="text-4xl font-bold mb-6 text-center">Seamless Integrations</h2>
@@ -244,7 +219,7 @@ const Index = () => {
       </section>
 
       {/* Comparison */}
-      <section className="py-20 px-4">
+      <section className="py-16 px-4 gradient-bg">
         <div className="container mx-auto max-w-6xl">
           <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">COMPARISON</p>
           <h2 className="text-4xl font-bold mb-6 text-center">Why RingmeAI Stands Out</h2>
@@ -292,39 +267,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI-Driven Efficiency */}
-      <section className="py-20 px-4 gradient-bg">
-        <div className="container mx-auto max-w-6xl">
-          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">AI-DRIVEN EFFICIENCY</p>
-          <h2 className="text-4xl font-bold mb-6 text-center">Never Miss an Opportunity</h2>
-          <p className="text-lg text-muted-foreground mb-12 text-center">Capture leads, analyze trends, and centralize critical insights</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: Target, title: "Instant Lead Capture", desc: "Never miss a call or inquiry — every lead is logged automatically" },
-              { icon: Shield, title: "AI You Can Trust", desc: "Smart, secure, and reliable call handling for peace of mind" },
-              { icon: TrendingUp, title: "Grow Smarter", desc: "Focus on expansion while we handle the conversations" }
-            ].map((item) => (
-              <Card key={item.title} className="bg-card border-border">
-                <CardContent className="p-6">
-                  <item.icon className="w-10 h-10 text-primary mb-4" />
-                  <h4 className="font-bold text-xl mb-3">{item.title}</h4>
-                  <p className="text-muted-foreground">{item.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            {["Smart Analytics", "Real-Time Collaboration", "Task Prioritization"].map((feature) => (
-              <div key={feature} className="px-6 py-3 bg-card border border-border rounded-full">
-                <span className="font-medium">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section id="faq" className="py-20 px-4">
+      <section id="faq" className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
           <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">FAQ'S SECTION</p>
           <h2 className="text-4xl font-bold mb-6 text-center">Some Common FAQ's</h2>
@@ -366,7 +310,7 @@ const Index = () => {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="py-20 px-4 gradient-bg">
+      <section id="contact" className="py-16 px-4 gradient-bg">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <p className="text-sm text-primary font-semibold mb-4 tracking-wider">GET IN TOUCH</p>
