@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Phone, Bot, Calendar, TrendingUp, Users, Shield, BarChart3, Clock, Target, CheckCircle2, Instagram } from "lucide-react";
-import ceoImage from "@/assets/ceo-younes.jpg";
 import { BookingModal } from "@/components/BookingModal";
 import { ContactForm } from "@/components/ContactForm";
 import { IntegrationMarquee } from "@/components/IntegrationMarquee";
@@ -62,55 +61,30 @@ const Index = () => {
       <DashboardShowcase />
 
       {/* Founder's Note */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">FOUNDERS NOTE</p>
-          <Card className="bg-card border-border">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <img src={ceoImage} alt="Younes - Co-Founder & CEO" className="w-32 h-32 rounded-full object-cover" />
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">" We gather your site data. We know your target audience & how your brand can standout from crowd. Best part is we also help you with Solutions „</h3>
-                  <p className="text-muted-foreground mb-4">
-                    When I started this journey, I saw the same problem over and over again — businesses losing opportunities, not because their product wasn't great, but because a call went unanswered or a lead slipped through the cracks.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    The way I see it, every call is a chance to grow. And with the right technology, you'll never miss that chance again.
-                  </p>
-                  <p className="font-semibold">Younes - Co-Founder & CEO</p>
-                </div>
-              </div>
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-3xl">
+          <Card className="bg-gradient-to-br from-card to-card/50 border-primary/30">
+            <CardContent className="p-6 md:p-8 text-center">
+              <p className="text-lg md:text-xl text-muted-foreground italic leading-relaxed">
+                "Every call is a chance to grow. With the right technology, you'll never miss that chance again. We built RingmeAI to ensure businesses never lose opportunities just because a call went unanswered."
+              </p>
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* AI That Fits Your Business */}
-      <section id="features" className="py-16 px-4 gradient-bg">
-        <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-bold mb-6 text-center">AI That Fits Your Business</h3>
-          <p className="text-lg text-muted-foreground mb-12 text-center max-w-4xl mx-auto">
-            From dental clinics to roofers, med spas to private tutors, we design AI receptionists that adapt to your industry's unique needs. Whether it's booking patient check-ups, scheduling roofing consultations, or handling spa appointments, our agents deliver personalized, professional service—so your clients always feel valued and your business runs smoother
+      <section id="features" className="py-12 px-4 gradient-bg">
+        <div className="container mx-auto max-w-5xl">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-center">AI That Fits Your Business</h3>
+          <p className="text-base md:text-lg text-muted-foreground mb-8 text-center max-w-3xl mx-auto">
+            From dental clinics to roofers, med spas to private tutors—our AI adapts to your industry's unique needs
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center">
-                <Phone className="w-10 h-10 text-primary" />
-              </div>
-              <p className="font-semibold text-xl">RingmeAI</p>
-            </div>
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full bg-secondary/50 flex items-center justify-center">
-                <Users className="w-10 h-10 text-primary" />
-              </div>
-              <p className="font-semibold text-xl">Your Business</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {["Dental Clinic's", "Med Spa's", "Chiropractor's", "Roofer's", "HVAC Companies", "Private Tutors"].map((business) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {["Dental Clinics", "Med Spas", "Chiropractors", "Roofers", "HVAC Companies", "Private Tutors"].map((business) => (
               <Card key={business} className="bg-card/50 border-border backdrop-blur-sm">
-                <CardContent className="p-4 text-center">
-                  <p className="font-medium">{business}</p>
+                <CardContent className="p-3 md:p-4 text-center">
+                  <p className="font-medium text-sm md:text-base">{business}</p>
                 </CardContent>
               </Card>
             ))}
@@ -118,76 +92,45 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI That Expands With You */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-bold mb-6 text-center">AI That Expands With You</h3>
-          <p className="text-lg text-muted-foreground mb-12 text-center max-w-3xl mx-auto">
-            Growing a business shouldn't mean adding endless overhead. With our AI-powered agents, you scale smarter—not harder. Whether you're handling 10 calls or 1,000, our system adapts instantly, giving you the freedom to focus on the bigger picture
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Key Benefits - Compact */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">Scale Smarter With AI</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <Card className="bg-card border-border">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <TrendingUp className="w-8 h-8 text-primary" />
-                  <h4 className="text-2xl font-bold">See Growth</h4>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Monthly Visits</span>
-                    <span className="font-bold text-2xl text-primary">+247%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Last 24hrs</span>
-                    <span className="font-bold text-xl">1,842</span>
-                  </div>
-                  <div className="h-32 bg-primary/10 rounded-lg flex items-end gap-2 p-4">
-                    {[40, 60, 45, 75, 90, 85, 100].map((height, i) => (
-                      <div key={i} className="flex-1 bg-primary rounded-t" style={{ height: `${height}%` }} />
-                    ))}
-                  </div>
-                </div>
+              <CardContent className="p-5 md:p-6">
+                <Calendar className="w-7 h-7 text-primary mb-3" />
+                <h4 className="font-bold text-lg mb-2">Scale Without Limits</h4>
+                <p className="text-muted-foreground text-sm">Handle 10 or 1,000 calls—no added staff needed</p>
               </CardContent>
             </Card>
-            <div className="space-y-4">
-              <Card className="bg-card border-border">
-                <CardContent className="p-6">
-                  <Calendar className="w-8 h-8 text-primary mb-3" />
-                  <h4 className="font-bold text-xl mb-2">Scale Without Limits</h4>
-                  <p className="text-muted-foreground">Handle unlimited calls without adding staff</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-card border-border">
-                <CardContent className="p-6">
-                  <Clock className="w-8 h-8 text-primary mb-3" />
-                  <h4 className="font-bold text-xl mb-2">Automate Follow-Ups</h4>
-                  <p className="text-muted-foreground">Never miss a lead with automated nurturing</p>
-                </CardContent>
-              </Card>
-              <Button onClick={() => { window.location.href = 'https://cal.com/ringmeai/15min'; }} size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                Start Growing Now
-              </Button>
-            </div>
+            <Card className="bg-card border-border">
+              <CardContent className="p-5 md:p-6">
+                <Clock className="w-7 h-7 text-primary mb-3" />
+                <h4 className="font-bold text-lg mb-2">Automate Follow-Ups</h4>
+                <p className="text-muted-foreground text-sm">Never miss a lead with smart nurturing</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Key Benefits */}
-      <section className="py-16 px-4 gradient-bg">
-        <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-bold mb-12 text-center">Why Choose RingmeAI</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="py-12 px-4 gradient-bg">
+        <div className="container mx-auto max-w-5xl">
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">Why Choose RingmeAI</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
-              { icon: Clock, title: "24/7 Coverage", desc: "Never miss a call, day or night" },
-              { icon: Calendar, title: "Auto-Booking", desc: "Appointments scheduled instantly" },
-              { icon: Target, title: "Lead Capture", desc: "Every caller becomes an opportunity" },
-              { icon: TrendingUp, title: "Smart Insights", desc: "Data-driven growth decisions" }
+              { icon: Clock, title: "24/7 Coverage", desc: "Never miss a call" },
+              { icon: Calendar, title: "Auto-Booking", desc: "Instant scheduling" },
+              { icon: Target, title: "Lead Capture", desc: "Every call counts" },
+              { icon: TrendingUp, title: "Smart Insights", desc: "Data-driven growth" }
             ].map((item) => (
               <Card key={item.title} className="bg-card border-border hover:border-primary/50 transition-all">
-                <CardContent className="p-6 text-center">
-                  <item.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                <CardContent className="p-4 md:p-5 text-center">
+                  <item.icon className="w-8 h-8 md:w-10 md:h-10 text-primary mx-auto mb-2 md:mb-3" />
+                  <h4 className="font-bold text-sm md:text-base mb-1">{item.title}</h4>
+                  <p className="text-muted-foreground text-xs md:text-sm">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -195,22 +138,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Integrations */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">INTEGRATIONS</p>
-          <h2 className="text-4xl font-bold mb-6 text-center">Seamless Integrations</h2>
-          <p className="text-lg text-muted-foreground mb-12 text-center">Smart integrations built to scale with you</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* How It Works */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">How It Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              "We build agents tailored to your business—trained to sound natural, answer correctly, and represent your brand 24/7.",
-              "Your AI receptionist is now ready to launch, custom-trained to match your brand voice, book calls, and handle leads 24/7.",
-              "Your AI receptionist books appointments directly into your calendar—no back-and-forth, no missed opportunities.",
-              "Every booked call is nurtured into a paying client with reminders, follow-ups, via sms etc and instant hand-offs to your team."
+              "Custom AI trained to sound natural and represent your brand 24/7",
+              "Books appointments directly into your calendar—no back-and-forth",
+              "Nurtures every lead with smart follow-ups and instant handoffs"
             ].map((text, i) => (
               <Card key={i} className="bg-card border-border">
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground">{text}</p>
+                <CardContent className="p-4 md:p-5">
+                  <div className="flex gap-3 items-start">
+                    <span className="text-primary font-bold text-lg">{i + 1}.</span>
+                    <p className="text-muted-foreground text-sm md:text-base">{text}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -219,45 +162,41 @@ const Index = () => {
       </section>
 
       {/* Comparison */}
-      <section className="py-16 px-4 gradient-bg">
-        <div className="container mx-auto max-w-6xl">
-          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">COMPARISON</p>
-          <h2 className="text-4xl font-bold mb-6 text-center">Why RingmeAI Stands Out</h2>
-          <p className="text-lg text-muted-foreground mb-12 text-center">See how we compare against others in performance, growth</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-12 px-4 gradient-bg">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Why RingmeAI Stands Out</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <Card className="bg-primary/10 border-primary">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-primary">RingmeAI</h3>
-                <ul className="space-y-4">
+              <CardContent className="p-5 md:p-6">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">RingmeAI</h3>
+                <ul className="space-y-2 md:space-y-3">
                   {[
-                    "Automates booking calls & filling calendars",
-                    "24/7 availability with no missed calls",
-                    "Seamless integrations with your favorite tools",
-                    "Transparent pricing with no hidden fees",
-                    "Personalized to match your brand voice"
+                    "24/7 availability—no missed calls",
+                    "Auto-booking & calendar sync",
+                    "Seamless tool integrations",
+                    "Matches your brand voice"
                   ].map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
+                    <li key={feature} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm md:text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
             </Card>
             <Card className="bg-card border-border opacity-75">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-muted-foreground">Others</h3>
-                <ul className="space-y-4 text-muted-foreground">
+              <CardContent className="p-5 md:p-6">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 text-muted-foreground">Others</h3>
+                <ul className="space-y-2 md:space-y-3 text-muted-foreground">
                   {[
-                    "Manual scheduling & messy follow-ups",
-                    "Missed calls and lost leads",
-                    "Complicated setups, poor integrations",
-                    "No automation for follow-ups",
-                    "Slow response times"
+                    "Missed calls, lost leads",
+                    "Manual scheduling chaos",
+                    "Complex, poor integrations",
+                    "Generic, robotic responses"
                   ].map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full border-2 border-muted-foreground flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
+                    <li key={feature} className="flex items-start gap-2">
+                      <div className="w-5 h-5 rounded-full border-2 border-muted-foreground flex-shrink-0 mt-0.5" />
+                      <span className="text-sm md:text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -268,11 +207,9 @@ const Index = () => {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 px-4">
+      <section id="faq" className="py-12 px-4">
         <div className="container mx-auto max-w-4xl">
-          <p className="text-sm text-primary font-semibold mb-4 text-center tracking-wider">FAQ'S SECTION</p>
-          <h2 className="text-4xl font-bold mb-6 text-center">Some Common FAQ's</h2>
-          <p className="text-lg text-muted-foreground mb-12 text-center">Get answers to your questions and learn about our platform</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Common Questions</h2>
           <Accordion type="single" collapsible className="space-y-4">
             {[
               {
@@ -310,13 +247,12 @@ const Index = () => {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="py-16 px-4 gradient-bg">
+      <section id="contact" className="py-12 px-4 gradient-bg">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <p className="text-sm text-primary font-semibold mb-4 tracking-wider">GET IN TOUCH</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Talk About Your Growth</h2>
-            <p className="text-xl text-muted-foreground">
-              Ready to transform how your business handles calls? We're here to help.
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Talk About Your Growth</h2>
+            <p className="text-base md:text-lg text-muted-foreground">
+              Ready to transform how your business handles calls?
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
